@@ -4,7 +4,7 @@ class VideoElement extends Component{
     componentDidMount(){
         if(this.props.src)
         this.video.srcObject=this.props.src;
-        
+        console.log(this.props.src);
     }
 
     render(){

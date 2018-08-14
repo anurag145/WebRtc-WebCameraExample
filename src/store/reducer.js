@@ -26,6 +26,7 @@ const reducer=(state=initialState,action)=>{
          case actionTypes.STOP_CONNECTION:
          
          return stopConnection(state,action);
+         
          case actionTypes.PLAY_CONNECTION:
          
          return playConnection(state,action);

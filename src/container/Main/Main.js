@@ -18,14 +18,7 @@ class Main extends Component{
         }
     }
     startService=()=>{
-        const mediaStreamConstraints = {
-            video: true,
-          };
-          navigator.mediaDevices.getUserMedia(mediaStreamConstraints).then(mediaStream=>{
-            this.props.onPlay(mediaStream)
-          }).catch(error=>{
-
-          })
+       this.props.onPlay();
     
 }
     
@@ -34,7 +27,7 @@ class Main extends Component{
          this.startService();
     }
     render(){
-      
+        
         let mainDisplay=<p className={'display'}>Waiting for permission...</p>;
             if(this.props.Permission)  
            mainDisplay=<div className={"content"}>

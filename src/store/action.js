@@ -1,18 +1,41 @@
 import * as actionTypes from './actionTypes';
 export const stopConnection=()=>{
-    console.log("i am 1");
+    
 
     return{
     type:actionTypes.STOP_CONNECTION
 }
 }
+ export const action=(mediaStream)=>{
+return{
+    type:actionTypes.PLAY_CONNECTION,
+    mediaStream:mediaStream
+}
+ }
 
-
-export const playConnection=(mediaStream)=>{
+export const player=()=>{
+ 
+   return dispatch=>{
+    const mediaStreamConstraints = {
+        video: true,
+      };
+      navigator.mediaDevices.getUserMedia(mediaStreamConstraints).then(mediaStream=>{
       
-       return {
-           type:actionTypes.PLAY_CONNECTION,
-           mediaStream:mediaStream
+        dispatch(action(mediaStream))
+        
+      }).catch(error=>{
+        console.log(error);
+      });
+      
+      
+     
+      }
+    }
+
+export const playConnection=()=>{
+      
+       return dispatch=>{
+          dispatch(player());
        }
     }
     
