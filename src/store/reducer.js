@@ -15,19 +15,19 @@ const stopConnection=(state)=>{
 }
 
 const playConnection=(state,action)=>{
-    console.log(action.mediaStream);
+    
     return UpdateObject(state,{mediaStream:action.mediaStream,buttonState:true,Permission:true})
 }
 
 const reducer=(state=initialState,action)=>{
-    console.log("hello I am here");
+    
      switch(action.type)
      {
          case actionTypes.STOP_CONNECTION:
-         console.log("I am 23");
+         
          return stopConnection(state,action);
          case actionTypes.PLAY_CONNECTION:
-         console.log("I am 3");
+         
          return playConnection(state,action);
             
          
