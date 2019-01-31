@@ -18,6 +18,7 @@ export const player=()=>{
    return dispatch=>{
     const mediaStreamConstraints = {
         video: true,
+        audio: true
       };
       navigator.mediaDevices.getUserMedia(mediaStreamConstraints).then(mediaStream=>{
       
