@@ -1,5 +1,5 @@
-const updateObject =(oldObject, updatedProperties)=>{
-    return{
+const updateObject = (oldObject, updatedProperties) => {
+    return {
         ...oldObject,
         ...updatedProperties
     };

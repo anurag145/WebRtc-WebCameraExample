@@ -1,43 +1,32 @@
 import * as actionTypes from './actionTypes';
-export const stopConnection=()=>{
-    
+export const stopConnection = () => {
+  return {
+    type: actionTypes.STOP_CONNECTION
+  }
+}
+export const action = (mediaStream) => {
+  return {
+    type: actionTypes.PLAY_CONNECTION,
+    mediaStream: mediaStream
+  }
+}
 
-    return{
-    type:actionTypes.STOP_CONNECTION
-}
-}
- export const action=(mediaStream)=>{
-return{
-    type:actionTypes.PLAY_CONNECTION,
-    mediaStream:mediaStream
-}
- }
-
-export const player=()=>{
- 
-   return dispatch=>{
+export const player = () => {
+  return dispatch => {
     const mediaStreamConstraints = {
-        video: true,
-        audio: true
-      };
-      navigator.mediaDevices.getUserMedia(mediaStreamConstraints).then(mediaStream=>{
-      
-        dispatch(action(mediaStream))
-        
-      }).catch(err=>{
-        console.log(err);
-      });
-      
-      
-     
-      }
-    }
+      video: true,
+      audio: true
+    };
+    navigator.mediaDevices.getUserMedia(mediaStreamConstraints).then(mediaStream => {
+      dispatch(action(mediaStream))
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+}
 
-export const playConnection=()=>{
-      
-       return dispatch=>{
-          dispatch(player());
-       }
-    }
-    
-    
+export const playConnection = () => {
+  return dispatch => {
+    dispatch(player());
+  }
+}
